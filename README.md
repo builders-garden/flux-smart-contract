@@ -14,13 +14,9 @@ npx hardhat ignition deploy ./ignition/modules/Lock.ts
 
 # Contract Addresses
 
-ENS Gateway (Ethereum Mainnet):
-0xb03B678fed1E379ef9D59F1e48d99D0370F35028
+- ENS Gateway (Ethereum Mainnet): 0xb03B678fed1E379ef9D59F1e48d99D0370F35028
 
-Flux Subscriptions (Sei):
-
-Flux Subscriptions (Mantle):
-
-Flux Subscriptions (Celo):
-
-Flux Subscriptions (Optimism):
+- Flux Subscriptions (Sei): 0xea6f7e3978ae26798c1d508957EAAD439bbeF5f4
+- Flux Subscriptions (Mantle): 0xea6f7e3978ae26798c1d508957EAAD439bbeF5f4
+- Flux Subscriptions (Celo): 0xF69671827C264d9A6E7CF30970015c3692Fc1d97
+- Flux Subscriptions (Base): 0x1ee31c573296354aE74728035b276Bc44681bbcA
