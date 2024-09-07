@@ -41,7 +41,7 @@ contract FluxSubs is ReentrancyGuard, IFluxSub {
         fluxWorkerAddress = _fluxWorkerAddress;
     }
 
-    function createSubscription(address payer, address merchantAddress, address tokenAddress, uint256 amount, uint256 duration) public onlyWorker returns (uint256) {
+    function createSubscription(address payer, address merchantAddress, address tokenAddress, uint256 amount, uint256 interval) public onlyWorker returns (uint256) {
         require(merchantAddress != address(0), "Invalid address");
         require(amount > 0, "Amount must be greater than 0");
         require(duration > 0, "Duration must be greater than 0");
@@ -53,7 +53,7 @@ contract FluxSubs is ReentrancyGuard, IFluxSub {
             tokenAddress: tokenAddress,
             amount: amount,
             collectedAmount: 0,
-            interval: duration,
+            interval: interval,
             active: true,
             triggerTime: block.timestamp  // first payment is now
         });
