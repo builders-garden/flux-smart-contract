@@ -81,10 +81,14 @@ contract FluxSubs is ReentrancyGuard, IFluxSub {
         return true;
     }
 
-    function collectPayment(uint256 subscriptionId, bytes memory callData) public onlyWorker {
+    function collectPayment(uint256 subscriptionId, bytes memory callData, bool approveNeeded) public onlyWorker {
         require(subscriptionId != 0, "Invalid id");
         require(subscriptions[subscriptionId].collectedAmount > 0, "No payment collected");
         uint256 preBalance = IERC20(subscriptions[subscriptionId].tokenAddress).balanceOf(address(this));
+        // if approveNeeded is true, approve the aggregator to spend the tokens
+        if (approveNeeded) {
+            IERC20(subscriptions[subscriptionId].tokenAddress).approve(aggregatorAddress, subscriptions[subscriptionId].collectedAmount);
+        }
         // call the function
         (bool success, bytes memory returnData) = aggregatorAddress.call(callData);
         require(success, "Call failed");
