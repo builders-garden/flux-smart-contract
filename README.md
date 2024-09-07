@@ -1,18 +1,37 @@
-# Sample Hardhat Project
+# Flux Smart Contract
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+This project contains smart contracts for the Flux subscription system and an ENS Gateway. It's built using Hardhat and includes contracts for managing subscriptions (aka recurring payments) and off-chainresolving ENS names.
 
-Try running some of the following tasks:
+## Project Structure
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.ts
-```
+- `contracts/`: Contains the Solidity smart contracts
+- `test/`: Contains the test files for the contracts
+- `ignition/`: Contains Hardhat Ignition deployment modules
+- `hardhat.config.ts`: Hardhat configuration file
 
-# Contract Addresses
+## Key Contracts
+
+1. **FluxSubs**: Manages subscriptions for recurring payments.
+2. **OffchainResolver**: Implements an ENS resolver that directs queries to a CCIP read gateway.
+
+## Setup
+
+1. Install dependencies:
+   ```
+   npm install
+   ```
+
+2. Compile contracts:
+   ```
+   npx hardhat compile
+   ```
+
+3. Run tests:
+   ```
+   npx hardhat test
+   ```
+
+## Contract Addresses
 
 - ENS Gateway (Ethereum Mainnet): 0xb03B678fed1E379ef9D59F1e48d99D0370F35028
 
